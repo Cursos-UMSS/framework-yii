@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Framework Yii - 2014</title>
+
+		<meta name="description" content="A framework for easily creating beautiful app Webs using php">
+		<meta name="author" content="Jose Luis Yacelly Ramos">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+				<section>
+					
+
+					<h1>Framework YII </h1>
+					<p>
+						<small>Instructor <a href="http://yac.net16.net" target="_blank">Jose Luis Yacelly Ramos</a> / <a href="http://twitter.com/yacel100" target="_blank">@yacel100</a></small>
+					<br>
+					<br>
+					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Viernes, 15 de Agosto del 2014</center></h5>
+
+				</section>
+					<section>
+						<ul><li>
+							<a href="#/1">Dia 1 - Introduccion, mi primera App Web</a>
+						</li>
+						<li>
+							<a href="#/7">Dia 2 - Estructura de directorios </a>
+						</li>
+						<li>
+							<a href="#/9">Dia 3 - Generador de codigo</a>
+
+						</li>
+						<li>
+							<a href="#/11">Dia 4 - Personalizando nuestra App(Temas y extensiones) </a>
+						</li>
+						<li>
+							<a href="#/11">Dia 5 - Acceso de datos </a>
+						</li>
+
+					</ul>
+					</section>
+				</section>
+				<section> 
+				<section>
+					
+					<h2>Razones por las que deberías usar Frameworks en PHP</h2>
+					<p>Los Frameworks en PHP han recibido mucha atención en los ultimos años de parte de la comunidad de desarrolladores web</p>
+
+				</section>
+
+				<section>
+				<h2>1. Organización de código y de archivos</h2>
+<div align="center"><img class="imagen" border="0" src="http://k34.kn3.net/taringa/2/0/9/1/4/9/9/esteban22x/215.jpg?8311" alt="10 Razones por las que deberías usar un PHP Framework"></div>
+				</section>
+				<section>
+					<h2>2. Utilidades y Librerias </h2>
+				<div align="center">
+<br><img class="imagen" border="0" src="http://k38.kn3.net/taringa/2/0/9/1/4/9/9/esteban22x/56D.gif?1112" alt="PHP"></div>
+				</section>
+				<section>
+					<h2>3. Patrón MVC </h2>
+					<p>El famoso Modelo Vista Controlador data de allá en el año 1979, cuando un hombre llamado Trygve Reenskaug (un noruego egresado de ciencias de la computación) lo describio por primera vez. </p>
+					<pre><strong>Modelo</strong> representa tu estructura de datos, usualmente por interfaces con las bases de datos. </pre> <pre>
+<strong>Vistas</strong> respresentan el contenido de las plantillas de la página y datos de salida </pre><pre>
+<strong>Controladores</strong> gestiona los request de la página y los enlaza. </pre>
+				</section>
+				<section>
+					<h2>4. Menos código y mas desarrollo</h2>
+					<p>Hay que cruzar toda una curva de aprendizaje para cualquier framework en PHP. Pero una vez lo comprendes, disfrutaras los beneficios del desarrollo rápido de aplicaciones.</p><p> 
+
+				</section>
+				<section>
+					
+					<h2>5. Soporte de la comunidad </h2>
+					<img class="imagen" border="0" src="http://k42.kn3.net/taringa/2/0/9/1/4/9/9/esteban22x/022.jpg?7814" alt="utilidades">
+					<br>
+					<small>
+						comunidad YII en español: <a href="http://yiiframeworkenespanol.org/foro/">http://yiiframeworkenespanol.org</a>
+					</small>
+
+				</section>
+				<section>
+					<h2>6. Seguridad </h2>
+					<p>En PHP puedes encontrar muchas funciones para filtrar datos de entrada y de salida para proteger tu sitio de ciertos ataques. 
+</p>
+				</section>
+
+				</section>
+				<section>
+					<h2> Porque Yii?</h2>
+					<p>Yii es un framework generico de programación Web que puede ser utilzado para todo tipo de aplicaciones Web. Gracias a que es <strong>liviano de correr </strong>y está equipado con <strong>soluciones de cacheo sofisticadas</strong>, es adecuado para desarrollar aplicaciones de grán tráfico como <strong>portales</strong>, <strong>foros</strong>, <strong>sistemas de administración de contenidos (CMS)</strong>, <strong>Sistemas de comercio electrónico (e-commerce)</strong>, etc.</p>
+				</section>
+				<section>
+					<h3> Cómo se compara Yii con otros frameworks?</h3>
+					<p>
+						Como la mayoría de los frameworks PHP, Yii es un framework MVC (modelo-vista-controlador).
+
+
+					</p>
+					<p>
+						Yii Yii sobresale frente a frameworks PHP en su <strong><ins>eficiencia</ins></strong>, su <strong><ins>gran cantidad de características</ins></strong> y su<strong> <ins>clara documentación</ins></strong>. </p><p>Yii ha sido diseñado cuidadosamente desde el principio para el desarrollo de aplicaciones de Web. No es ni un subproducto de un proyecto ni un conglomerado de trabajo de terceros. Es el resultado de la basta experiencia de los autores en desarrollo de aplicaciones Web y de la investigación y la reflexión de los más populares los frameworks de programación Web y aplicaciones.
+
+
+					</p>
+				</section>
+				<section> 
+				<section>
+					<h2>instalando yii</h2>
+					<ol>
+<li>Descargar el framework Yii de <a href="http://www.yiiframework.com/download/">yiiframework.com</a>.</li>
+<li>Descomprimir el archivo a un directorio accesible por el servicio Web. <pre>Apache2-Linux(/var/www/)</pre><pre>Xampp-windows(c:/xampp/htdocs/)</pre><pre>Xampp-MacOs(/Applications/XAMPP/xamppfiles/htdocs)</pre></li>
+</ol>
+				</section>
+				<section>
+					<h2>Requerimiento</h2>
+					<pre>http://localhost/path/to/yii/requirements/index.php
+</pre>
+<p>El requerimiento mínimo de Yii es que su server soporte PHP 5.1.0 o superior.</p>
+				</section>
+				</section>
+				<section> 
+				<section>
+					<h2>creando nuestra primera aplicacion</h2>
+					<p>Para ello Usaremos la poderosa herramienta <strong>yiic</strong> que puede ser utilizadapara automatizar la creación del códgo de ciertas tareas.</p>
+					<pre><strong>YiiRoot</strong> es el directorio donde Yii se encuentra instalado y <strong>WebRoot</strong> es la ruta del documento de tu Web Server.</pre>
+					<pre>$ <strong>YiiRoot</strong>/framework/yiic webapp <strong>WebRoot</strong>/testdrive
+</pre>
+				</section>
+
+				<section>
+					<p>El siguiente diagrama muestra la estructura de directorios de nuestra aplicación</p>
+					<pre>testdrive/
+   index.php                 archivo de entrada de la aplicación Web
+   assets/                   contiene archivos de recursos públicos
+   css/                      contiene archivos CSS
+   images/                   contiene archivos de imágenes
+   themes/                   contiene temas de la aplicación
+   protected/                contiene los archivos protegidos de la aplicación
+      yiic                   script de linea de comandos yiic
+      yiic.bat               script de linea de comandos yiic para Windows
+      commands/              contiene comandos 'yiic' personalizados
+         shell/              contiene comandos 'yiic shell' personalizados
+      components/            contiene componentes reusables
+         MainMenu.php        clase de widget 'MainMenu'
+         Identity.php        clase 'Identity' utilizada para autenticación
+         views/              contiene los archivos de vistas para los widgets
+            mainMenu.php     el archivo vista para el widget 'MainMenu'
+      config/                contiene archivos de configuración
+         console.php         configuración aplicación consola
+         main.php            configuración de la aplicación Web
+     
+</pre>
+				</section>
+				<section>
+					<pre> controllers/           contiene los archivos de clase de controladores
+         SiteController.php  la clase controlador predeterminada
+      extensions/            contiene extensiones de terceros
+      messages/              contiene mensajes traducidos
+      models/                contiene archivos clase de modeloscontaining model class files
+         LoginForm.php       el formulario modelo para la acción 'login'
+         ContactForm.php     el formulario modelo para la acción 'contact'
+      runtime/               contiene archivos temporarios generados
+      views/                 contiene archivos de vista de controladores y de diseño
+         layouts/            contiene archivos de diseño
+            main.php         el diseño default para todas las vistas
+         site/               contiene archivos vista para el controlador 'site'
+            contact.php      contiene la vista para la acción 'contact'
+            index.php        contiene la vista para la acción 'index'
+            login.php        contiene la vista para la acción 'login'
+         system/             contiene archivos de vista del sistema</pre>
+         <small>
+         	referencia: <a href="http://www.yiiframework.com/doc/guide/1.1/en/quickstart.first-app">http://www.yiiframework.com/doc/guide/1.1/en/quickstart.first-app</a>
+         </small>
+				</section>
+				</section>
+				<section>
+					<h2>llenado de formulario</h2>
+					<iframe src="https://docs.google.com/forms/d/1y70aUHVpbBceLfRilCtjZPzlkoVaJaI155q_ZxP9NIU/viewform?embedded=true" width="760" height="680" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+				</section>
+				<section> 
+				<section>
+					<h2>creando la primera App Web</h2>
+					<pre>yii/framework/yiic webapp HolaMundo</pre>
+				</section>
+				<section>
+					<h2>estructura de directorios</h2>
+					<img class="aligncenter size-full wp-image-211" alt="creando app yii 3" src="http://macadiazcolomes.com/wp/wp-content/uploads/2013/07/Captura-de-pantalla-2013-07-09-a-las-21.22.23.png" width="336" height="489">
+				</section>
+				<section>
+					<h2>abriendo la aplicacion</h2>
+					<img class="aligncenter size-large wp-image-212" alt="Creando app yii 4" src="http://macadiazcolomes.com/wp/wp-content/uploads/2013/07/Captura-de-pantalla-2013-07-09-a-las-21.24.31-1024x608.png" width="640" height="380">
+				</section>
+
+
+				</section>
+				<section>
+					<h1>Configurar Yii</h1>
+					<h2>configurando la base de datos con yii</h2>
+					<p style="text-align:justify;">En: <span style="color:#000000;"><em><strong>sistemayii/protected/config/<span class="skimlinks-unlinked">main.php</span></strong></em></span></p>
+					<p style="text-align:justify;"><span style="color:#ff00ff;">‘db’ <span style="color:#993366;">=&gt;</span> <span style="color:#008000;">array</span> (</span><br>
+<span style="color:#ff00ff;"> ‘connectionString’<span style="color:#993366;">=&gt;</span>‘pgsql:host=localhost;dbname=nombrebd’,</span><br>
+<span style="color:#ff00ff;"> ‘emulatePrepare’ <span style="color:#993366;">=&gt;</span> true,</span><br>
+<span style="color:#ff00ff;"> ‘username’ <span style="color:#993366;">=&gt;</span> ‘postgres’,</span><br>
+<span style="color:#ff00ff;"> ‘password’ <span style="color:#993366;">=&gt;</span> ‘clave’,</span><br>
+<span style="color:#ff00ff;"> ‘charset’ <span style="color:#993366;">=&gt;</span> ‘utf8′,</span><br>
+<span style="color:#ff00ff;"> ),</span></p>
+				</section>
+				<section> 
+				<section>
+					<h2>usando gii</h2>
+					<p style="text-align:justify;">Descomentar el modulo <strong><span style="color:#000000;">gii</span></strong> para habilitar la generación de sus futuros módulos. Debe&nbsp; colocar una contraseña</p>
+					<p style="text-align:justify;"><span style="color:#ff00ff;">‘gii’ <span style="color:#993366;">=&gt;</span><span style="color:#008000;"> array<span style="color:#993366;">(</span></span></span><br>
+<span style="color:#ff00ff;"> ‘class’ <span style="color:#993366;">=&gt;</span> ‘<span class="skimlinks-unlinked">system.gii.GiiModule</span>’<span style="color:#993366;">,</span></span><br>
+<span style="color:#ff00ff;"> ‘password’<span style="color:#993366;"> =&gt;</span> ‘cl4v3s3cr3t4′<span style="color:#993366;">,</span></span><br>
+<span style="color:#3366ff;"> // If removed, Gii defaults to localhost only. Edit carefully to taste.</span><br>
+<span style="color:#ff00ff;"> ‘ipFilters’ <span style="color:#993366;">=&gt;</span> array(‘127.0.0.1′,'::1′)<span style="color:#993366;">,</span></span><br>
+<span style="color:#993366;"> ),</span></p>
+				</section>
+				<section>
+					<h2>accediendo al gii</h2>
+					<pre>http://localhost/holaMundo/index.php?r=gii</pre>
+				</section>
+				<section>
+					<h2>creando una base de datos</h2>
+					<ul>
+						<li>Instalamos un cliente de Base de Datos(navicat)</li>
+						<li>diseñamos el modelo de la base de datos</li>
+						<li>creamos la base de datos llamada "curso"</li>
+						<li>creamos la tabla llamada "alumno"</li>
+						<li>llenamos de datos la tabla "alumno"</li>
+
+					</ul>
+				</section>
+				<section>
+					<p style="text-align:justify;padding-left:30px;"><span style="color:#000000;"><strong><em>Database Access Objects (DAO):&nbsp;</em></strong></span>Construído sobre la extensión PHP Data&nbsp;Objects (PDO), los Objetos de Acceso a Datos de Yii (DAO) habilitan el acceso a diferentes sistemas de administración de bases de datos (DBMS) en una interfaz uniforme simple. Las aplicaciones desarrolladas usando el DAO de Yii pueden ser fácilmente cambiadas para usar un DBMS diferente sin la necesidad de modificar el código de acceso a los datos. <a href="http://www.yiiframework.com/doc/guide/1.1/es/database.dao" target="_blank" sl-processed="1">Ver Documentación Oficial </a></p>
+				</section>
+				</section>
+
+				<section>
+				<section> 
+				<h2>Crud en yii</h2>
+				<center> 
+				<TABLE BORDER="3" > 
+					<TR> 
+					   <TH>C</TH> 
+					   <TH>R</TH> 
+					   <TH>U</TH> 
+					   <TH>D</TH> 
+					</TR> 
+					<TR> 
+					   <TD>Create</TD> 
+					   <TD>Read</TD> 
+					   <TD>Update</TD> 
+					   <TD>Delete</TD> 
+					</TR> 
+
+					</TABLE> 
+				</center>
+				<img class="aligncenter size-full wp-image-37" title="yii" src="http://gabrielduarte77.files.wordpress.com/2012/01/yii2.png?w=604" alt="">
+				
+				<p style="text-align:justify;">Con esto hemos creado todas las vistas, el controlador y el modelo para esa tabla en particular, las vistas son: create, update, index, admin y view.<br>
+ </p>
+			
+
+				</section>
+				<section>
+					<h2>pasos</h2>
+					<ol>
+						<li>primero generamos nuestro modelo a partir de las tablas de la BD</li>
+						<li>ahora generamos el crud</li>
+					</ol>
+				</section>
+				</section>
+				<section>
+					<h2>editando el menu principal</h2>
+					<p style="text-align:justify;">
+Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/views/layouts/main.php</strong> y modificamos el arreglo de items del menú agregándole uno nuevo de la siguiente forma:</p>
+<td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">array</code><code class="php plain">(</code><code class="php string">'label'</code><code class="php plain">=&gt;</code><code class="php string">'nombre_modelo_menu'</code><code class="php plain">, </code><code class="php string">'url'</code><code class="php plain">=&gt;</code><code class="php keyword">array</code><code class="php plain">(</code><code class="php string">'/nombre_modelo/admin'</code><code class="php plain">)),</code></div></div></td>
+
+				</section>
+				
+				<section>
+					<h2>cambiando el idioma de la Aplicacion web</h2>
+					<pre>return array(
+		'basePath'=&gt;$appPath.'frontend',
+
+		'name'=&gt;'Recursos para formacion. ',
+		'params'=&gt;.....,
+		'aliases'=&gt;array(		 	....
+
+		),
+		<span style="color: #ff0000">'language'=&gt;'es',
+		                    'sourceLanguage'=&gt;'en',</span>
+		// charset to use
+		<span style="color: #ff0000">'charset'=&gt;'utf-8',</span>
+		'defaultController'=&gt;'site/index',</pre>
+				</section>
+
+
+				<section>
+					<h2>colocando un favicon</h2>
+					<p style="text-align:justify;">Si queremos colocar un favicon en el head de protected/views/layouts/main.php colocamos:</p>
+
+					<br>
+					<div class="line number1 index0 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">link</code> <code class="xml color1">rel</code><code class="xml plain">=</code><code class="xml string">"shortcut icon"</code> <code class="xml plain">href=" &lt;?php echo Yii::app()-&gt;request-&gt;baseUrl;?&gt; /images/icon.png" type="image/x-icon" /&gt;</code></div>
+				<br>
+					<p>obteniendo un favicon de una pagina web</p>
+					<pre>http://google.com/favicon.ico</pre>
+				</section>
+				<section> 
+				<section>
+
+					<h2>cambiando el menu de yii</h2>
+					<p style="text-align:justify;">Si queremos un menú mas potente podemos usar la extensión <a href="http://www.yiiframework.com/extension/mbmenu/" target="_blank">mbmenu</a><br>
+– Bajamos la extensión de la pagina oficial de Yii y copiamos la carpeta <strong>/protected/extensions</strong><br></p>
+				</section>
+				<section>
+					<p>– En <strong>/protected/views/layouts/main.php</strong> cambiar el widget del CMenu por algo como:</p>
+					<pre>
+						<code>&lt;?php $this->widget('application.extensions.mbmenu.MbMenu',array(
+ 'items'=>array(
+ array('label'=>'Home', 'url'=>array('/site/index')),
+ array('label'=>'Principal', 'url'=>array('/site/contact'),
+ 'items'=>array(
+ array('label'=>'SUB 1', 'url'=>array('/sub 1')),
+ array('label'=>'SUB 2', 'url'=>array('/sub 2')),
+ ),
+ ),
+ array('label'=>'Prueba',
+ 'items'=>array(
+ array('label'=>'Sub 1', 'url'=>array('/site/page','view'=>'sub1')),
+ array('label'=>'Sub 2',
+ 'items'=>array(
+ array('label'=>'Sub sub 1', 'url'=>array('/site/page','view'=>'subsub1')),
+ array('label'=>'Sub sub 2', 'url'=>array('/site/page','view'=>'subsub2')),
+ ),
+ ),
+ ),
+ ),
+ ),
+ )); ?&gt;
+						</code>
+					</pre>
+				</section>
+				<section>
+					<p style="text-align:justify;">Al colocar el nuevo menú seguramente se ve extraño, para evitar esto debemos quitar el id=“mainmenu”, con estos cambios queda mas espacio para las vistas y el pequeño menú de la derecha queda por debajo del menú principal.</p>
+				</section>
+				</section>
+				<section>
+					<section> 
+					<h2>Yii – Elegante y Atractivo</h2>
+					<h2>cambiando el tema</h2>
+					</section>
+
+					<section>
+						<h2>pasos para cambiar el tema</h2>
+						<p style="text-align:justify;">Adicionalmente Yii provee un mecanismo de gestión de temas muy bueno que permite cambiar el diseño de un sistema de forma rápida y practica. <br>Si queremos cambiar el tema por defecto deberá colocar su tema en el directorio <strong><em>/themes</em></strong> y agregar en <strong><em>/protected/config/<span class="skimlinks-unlinked">main.php</span> </em></strong>esta linea <em><pre>'theme' =&gt; 'nuevoTema',</pre></em></p>
+					</section>
+					<section>
+						<h2>Directorio de temas</h2>
+						<p>Existe un buen directorio de temas públicos y gratuitos para Yii donde encontraran desde diseños enfocados a paginas web corporativas hasta interfaces orientadas a cuadros de mandos y sistemas complejos</p>
+						<pre><a href="http://yii.themefactory.net/" rel="nofollow" sl-processed="1">http://yii.themefactory.net/</a></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Instalando bootstrap</h2>
+					<ul><li> Descargamos la extensión <a href="http://sourceforge.net/projects/yiibooster/files/yiibooster-3.1.1.zip/download">yiiboster 3.1.1</a></li>
+					<li>Descomprimimos y cambiamos el nombre de la carpeta a bootstrap</li>
+					<li>Copiamos la carpeta bootstrap a <pre>/protected/extensions/</pre></li>
+					<li>Configuramos el archivo /protected/config/main.php</li>
+					
+					</ul>
+						<pre>'components'=>array(
+		'user'=>array(
+			// enable cookie-based authentication
+			'allowAutoLogin'=>true,
+		),
+		<font color="red"> 
+		'bootstrap'=>array(
+			'class'=>'ext.bootstrap.components.bootstrap'
+			),
+		</font>
+					</pre>
+					<pre>'preload'=>array('log'<font color="red"> ,'bootstrap'</font>),</pre>
+
+				</section>
+				
+				<section>
+					<h2>ejercicio</h2>
+					<p>Realizar una App para una tienda en donde ya se tiene diseñada la base de datos </p>
+<p>aplicar todo lo conocido hasta el momento</p>
+					<a href="ejercicios/database/tienda.sql">descargar el script .sql</a>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+		<a class="fork-reveal" style="display: block;" href="https://github.com/Cursos-UMSS/framework-yii"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork reveal.js on GitHub"></a>
+		<script>
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
+
+	</body>
+</html>
