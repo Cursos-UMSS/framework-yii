@@ -1,0 +1,15 @@
+
+<snippet>
+     <content><![CDATA[
+
+'db'=>array(
+      'connectionString' => 'dbms:host=host;dbname=nombre db',
+      'emulatePrepare' => true,
+      'username' => 'nombre de usuario',
+      'password' => 'password de usuario',
+      'charset' => 'utf8',
+    ),
+
+    ]]></content>
+   <tabTrigger>atajo</tabTrigger>
+</snippet>
