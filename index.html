@@ -51,7 +51,7 @@
 						<small>Instructor <a href="http://yac.net16.net" target="_blank">Jose Luis Yacelly Ramos</a> / <a href="http://twitter.com/yacel100" target="_blank">@yacel100</a></small>
 					<br>
 					<br>
-					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Viernes, 15 de Agosto del 2014</center></h5>
+					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Lunes, 18 de Agosto del 2014</center></h5>
 
 				</section>
 					<section>
@@ -69,7 +69,10 @@
 							<a href="#/11">Dia 4 - Personalizando nuestra App(Temas y extensiones) </a>
 						</li>
 						<li>
-							<a href="#/18">Dia 5 - trabajando con la app con las herramientas</a>
+							<a href="#/18">Dia 5 - trabajando en la app con las herramientas</a>
+						</li>
+						<li>
+							<a href="#/22">Dia 6 - trabajando con git, personalizando las vista</a>
 						</li>
 
 					</ul>
@@ -425,7 +428,7 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 					<h2>ejercicio</h2>
 					<p>Realizar una App para una tienda en donde ya se tiene diseñada la base de datos </p>
 <p>aplicar todo lo conocido hasta el momento</p>
-					<a href="ejercicios/database/tienda.sql">descargar el script .sql</a>
+					<a href="material/tienda.sql">descargar el script .sql</a>
 					<br>
 					<small>Si el script de base de datos da errores deben de solucionarlos</small>
 					<center><pre>la presentacion del proyecto debe ser la siguiente: comprimir en       formato zip, una carpeta en donde este su           		       nombre completo(Apellido paterno, apellido materno, nombres) 
@@ -483,9 +486,117 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 					<small>realizar un pequeño tutorial guardado en formato pdf y agregaro a la anterior tarea</small>
 					<pre>las tareas las deben de subir a la plataforma de <a href="http://www.cursos.cs.umss.edu.bo">http://www.cursos.cs.umss.edu.bo</a> hasta las 19:00 del dia lunes 18 de agosto</pre>
 				</section>
+
 				<section>
-					<h2>trabajando con las vistas, controladores y modelos(vista general)</h2>
+					<section>
+						<h2>trabajando con git </h2>
+					<p>Descargar los instaladores de git <a href="http://git-scm.com/downloads">http://git-scm.com/downloads</a></p>
+					<p>Configuramos la nuestro git mediante consola</p>
+					<pre>git config --global user.name "tu_nombre"</pre>
+					<pre>git config --global user.email "tu@email"</pre>
+					<p>Generamos nuestra clave ssh</p>
+					<pre>cd /root/.ssh</pre>
+					<pre>ssh-keygen -t rsa -C "tu@email"</pre>
+					</section>
+					<section> 
+							<p>agregamos nuestra nueva key al ssh-agent</p>
+					<pre>eval "$(ssh-agent -s)"</pre>
+					<pre>ssh-add ~/.ssh/nombre_del_parafraseo</pre>
 				</section>
+				<section> 
+					<p>Adicionamos la key del ssh a github(<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>)</p>
+					<p>para copiar nuestra key a github, copiamos el contenido de nombre_del_parafraseo.pub</p>
+					<p>y por ultimo testeamos la conexion con </p>
+					<pre>ssh -T git@github.com</pre>
+				</section>
+					</section>
+
+				</section>
+				<section>
+				<section>
+					<h2>agregando la barra de bootstrap</h2>
+					<p>eliminamos la carpeta css</p>
+					<pre>rm -R App/css/</pre>
+					<p>eliminamos los archivos</p>
+					<pre>rm App/protected/views/layouts/column?.php</pre>
+					<p>cambiamos el valor del App/protected/components/Controller.php</p>
+					<pre> public $layout='//layouts/<font color="red">column2</font>';//antes</pre>
+					<pre>public $layout='//layouts/<font color="green">main</font>';//El nuevo</pre>
+
+				</section>
+						
+						<section>
+							
+							<h2>editamos el contenido del </h2>
+							<h3>App/protected/views/layouts/main.php </h3>
+							<pre> ver el siguiente codigo <a href="http://pastebin.com/e02xw25k"> click</a>
+							</pre>
+						</section>
+						<section>
+							<h2>agregamos el breadcrumbs</h2>
+							<pre> ver el siguiente codigo <a href="http://pastebin.com/vGTdPiGC"> click</a>
+						</section>
+						<section>
+							<h2>agregamos el widget del menu</h2>
+							<pre> ver el siguiente codigo <a href="http://pastebin.com/QJN1ubN7"> click</a>
+
+						</section>
+						<section>
+							<h2>agregamos el menu </h2>
+							
+							<pre> ver el siguiente codigo <a href="http://pastebin.com/2b4ZiA5N"> click</a></pre>
+						</section>
+					</section>
+					<section>
+					<section>
+						<h2>manejo de vistas en yii</h2>
+						<p>debemos de crear una archivo en App/protected/views/alumno/</p>
+						<pre><center>hola.php</center></pre> 
+						<p>agregaremos una nueva funcion en el App/protected/controllers/AlumnoController.php</p>
+						<pre>public function actionHola()
+	{
+		$this->render('hola');
+	}</pre>
+	<small>NOTA: siempre se usa la funcion action para mostrar que pueda mostar la vista</small>
+					</section>
+						<section>
+							<h2>Existe un error 403</h2>
+							<p class="fragment">Indicamos que tipo de permiso dar a esa nueva vista</p>
+							<p class="fragment">nos vamos a la funcion <font color="red">accessRules</font></p>
+							<pre class="fragment">			array('allow',  
+			'actions'=>array('index','view',<font color="red">'hola'</font>),
+				'users'=>array('*'),
+			),
+			array('allow', 
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', 
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
+			),
+			array('deny',  
+				'users'=>array('*'),
+			),
+		</pre>
+		<small class="fragment">
+							'users'=>array('*'), ---> puedes ver las paginas sin tener cuenta(Pubico)
+						</small>
+						<small class="fragment">
+							'users'=>array('@'), ---> puedes ver las paginas con una cuenta(registrado)
+						</small>
+						<small class="fragment">
+							'users'=>array('admin'), ---> puedes ver las paginas solo con cuenta admin(admin)
+						</small>
+						</section>
+						
+					</section>
+					<section>
+						<h2>tarea</h2>
+						<p>crear 5 vistas en donde cada una de ellas deba de decir el nombre de cada vista ejm: vista1.php(vista uno)</p>
+						<p>deben de estar agregados al menu cada vista</p>
+						<p>presentar una captura de imagen por vista en un archivo pdf, con sus apellidos y nombres como nombre del pdf</p>
+					</section>
 
 			</div>
 
