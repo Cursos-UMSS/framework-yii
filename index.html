@@ -546,6 +546,10 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 							
 							<pre> ver el siguiente codigo <a href="http://pastebin.com/2b4ZiA5N"> click</a></pre>
 						</section>
+						<section><h2>codigo final del menu</h2>
+							<p>Asi debe de quedar el menu despues de realizar todos los cambios</p>
+							<a href="http://pastebin.com/TtQw2b2x">http://pastebin.com/TtQw2b2x</a>
+						</section>
 					</section>
 					<section>
 					<section>
@@ -597,6 +601,55 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 						<p>deben de estar agregados al menu cada vista</p>
 						<p>presentar una captura de imagen por vista en un archivo pdf, con sus apellidos y nombres como nombre del pdf</p>
 					</section>
+				<section>
+					<section>
+						<h2>manejo de widgets</h2>
+						<p>
+							Los widgets son una pequeña aplicacion o programa que ayuda a la componentizacion del sistema, delegando funciones bien aisladas y reutilizables.
+						</p>
+						<pre><code data-trim>echo CHtml::link('Pincha mi alerta', '#',array('onclick'=>'alert("hola mundo")'));</code></pre>
+
+
+					</section>
+					<section>
+						<h2>creamos una extension</h2>
+						<p>Para el manejo de de nuestro widget creamos una extension personalizada</p>
+						<p>En donde creamos un archivo llamado "MiAlerta.php" en la siguiente direccion "App/protected/extensions/alerta/"</p>
+						<pre><code data-trim>class Mialerta extends CWidget
+{
+	
+	function init()
+	{
+		echo CHtml::link('pincha mi alerta', '#',array('onclick'=>'alert("hola mundo")'));
+	}
+}</code></pre>
+
+					</section>
+					<section>
+						<p>Para invocar a nuestro widget usamos el siguiente codigo</p>
+						<pre><code data-trim>$this->widget('ext.alerta.MiAlerta');</code></pre>
+						<p>Para nuestro ejemplo invocaremos a nuestro widget en el "App/protected/views/site/index.php"</p>
+						<img src="img/widget.png">
+
+					</section>
+
+				</section>
+				<section>
+					<h2>manejando un CgridView</h2>
+					<p>vamos a la siguiente controlador "App/protected/controllers/views/alumno/admin.php"</p>
+					<p>en ahi buscamos el el widget cgridview, en donde observamos que usamos una dataprovider llamado "$model->search()" </p>
+					<pre><code data-trim>
+						$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'alumno-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	.....
+					</code></pre>
+
+
+
+				</section>
+						
 
 			</div>
 
