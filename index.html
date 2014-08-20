@@ -51,7 +51,7 @@
 						<small>Instructor <a href="http://yac.net16.net" target="_blank">Jose Luis Yacelly Ramos</a> / <a href="http://twitter.com/yacel100" target="_blank">@yacel100</a></small>
 					<br>
 					<br>
-					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Martes, 19 de Agosto del 2014</center></h5>
+					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Miercoles, 20 de Agosto del 2014</center></h5>
 
 				</section>
 					<section>
@@ -76,6 +76,9 @@
 						</li>
 						<li>
 							<a href="#/26">Dia 7 - widgets y cgridview</a>
+						</li>
+						<li>
+							<a href="#/28">Dia 8 - manejo del dataprovider</a>
 						</li>
 
 					</ul>
@@ -525,6 +528,7 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 					<p>cambiamos el valor del App/protected/components/Controller.php</p>
 					<pre> public $layout='//layouts/<font color="red">column2</font>';//antes</pre>
 					<pre>public $layout='//layouts/<font color="green">main</font>';//El nuevo</pre>
+					<small>Nota: Siempre debemos de reliazar  este configuracion en los nuevos controlladores que tengamos en el sistema</small>
 
 				</section>
 						
@@ -564,7 +568,8 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 	{
 		$this->render('hola');
 	}</pre>
-	<small>NOTA: siempre se usa la funcion action para mostrar que pueda mostar la vista</small>
+	<small>NOTA: siempre usar la funcion action para mostrar que pueda mostar la vista</small>
+
 					</section>
 						<section>
 							<h2>Existe un error 403</h2>
@@ -633,6 +638,7 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 						<pre><code data-trim>$this->widget('ext.alerta.MiAlerta');</code></pre>
 						<p>Para nuestro ejemplo invocaremos a nuestro widget en el "App/protected/views/site/index.php"</p>
 						<img src="img/widget.png">
+						<small>para usar mas widget de bootstrap vamos al siguiente <a href="http://yiibooster.clevertech.biz/widgets">link</a></small>
 
 					</section>
 
@@ -651,6 +657,34 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 
 
 
+				</section>
+				<section><h2>manipulando el dataProvider</h2>
+					<p>Editamos el archivo App/protected/views/alumno/index.php</p>
+					<p>Cambiamos la vista de los alumnos</p>
+					<pre><code data-trim>
+						$gridColumns = array(
+array('name'=>'id', 'header'=>'#', 'htmlOptions'=>array('style'=>'width: 60px')),
+array('name'=>'nombre', 'header'=>'Nombre'),
+array('name'=>'apellidos', 'header'=>'Apellido'),
+array('name'=>'ci', 'header'=>'carnet de identidad'),
+array('name'=>'telefono', 'header'=>'Telefono '),
+array(
+'htmlOptions' => array('nowrap'=>'nowrap'),
+'class'=>'bootstrap.widgets.TbButtonColumn',
+'viewButtonUrl'=>null,
+'updateButtonUrl'=>null,
+'deleteButtonUrl'=>null,
+)
+);
+       $this->widget(
+    'bootstrap.widgets.TbGridView',
+    array(
+    'dataProvider' => $dataProvider,
+    'template' => "{items}",
+    'columns' => $gridColumns,
+    )
+    );
+					</code></pre>
 				</section>
 						
 
