@@ -51,7 +51,7 @@
 						<small>Instructor <a href="http://yac.net16.net" target="_blank">Jose Luis Yacelly Ramos</a> / <a href="http://twitter.com/yacel100" target="_blank">@yacel100</a></small>
 					<br>
 					<br>
-					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Miercoles, 20 de Agosto del 2014</center></h5>
+					<h5 class="absolute-element" style="position: center; width: 400x; height: 68px; z-index: 4; left: 411px; top: 584px;"><center>Jueves, 21 de Agosto del 2014</center></h5>
 
 				</section>
 					<section>
@@ -79,6 +79,9 @@
 						</li>
 						<li>
 							<a href="#/28">Dia 8 - manejo del dataprovider</a>
+						</li>
+						<li>
+							<a href="#/29">Dia 9 - formularios en yii</a>
 						</li>
 
 					</ul>
@@ -654,7 +657,7 @@ Para agregar el modelo nuevo al menú nos vamos al archivo <strong>/protected/vi
 	'filter'=>$model,
 	.....
 					</code></pre>
-
+						<small><a target="_blank" href="http://pastebin.com/pj3qKvEB">ver el codigo</a></small>
 
 
 				</section>
@@ -686,7 +689,108 @@ array(
     );
 					</code></pre>
 				</section>
-						
+				<section>
+					<h2>Formularios en YII</h2>
+					<p>El framework Yii cuenta con una serie de clases que facilitan la programación de formularios. Esto permite que el desarrollador se desentienda de la creación del código html para mostrar cada campo, como de la validación de los datos.
+
+</p>
+			<pre>La estructura del formulario se encuentra en App/protected/views/alumno/_form.php</pre>
+				</section>
+				<section>
+					<h2>manejo de los labels</h2>
+					<p>Son las etiquetas, que se les das a cada atributo del modelo 
+
+					</p>
+					<p>Estas se encuentran en la App/protected/models/Alumno.php</p>
+					<pre><code data-trim> public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'nombre' => 'Nombre',
+			'apellidos' => 'Apellidos',
+			'ci' => 'Ci',
+			'telefono' => 'Telefono',
+			'email' => 'Email',
+		);
+	}</code></pre>
+
+				</section>
+						<section>
+							<h2>manejo de las reglas de validacion de yii</h2>
+							<p>Para poder validar los formularios debemos de ir al modelo</p>
+							<p>En este caso iremos a App/protected/models/Alumno.php</p>
+							<pre><code data-trim>
+								
+								public function rules()
+	{
+		return array(
+			array('nombre, apellidos, ci, telefono, email', 'required'),
+			array('ci, telefono', 'numerical', 'integerOnly'=>true),
+			array('nombre, apellidos, email', 'length', 'max'=>255),
+			array('id, nombre, apellidos, ci, telefono, email', 'safe', 'on'=>'search'),
+			
+		);
+	}
+
+							</code></pre>
+							<small><a href="http://blog.jorgeivanmeza.com/2009/07/modelos-de-formularios-con-yii-validacion/" target="_blank"></a>ver validadores</small>
+							
+						</section>
+						<section>
+							<h2>guardando los datos </h2>
+							<p>Para ver como guarda por defecto los datos del fomulario de la vista create, nos vamos a la funcion "actionCreate" del controlador de ese modelo</p>
+							<small>en nuestro caso App/protected/controllers/AlumnoController.php</small>
+							<pre><code data-trim>
+								public function actionCreate()
+	{
+		$model=new Alumno;
+
+		
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Alumno']))
+		{
+			$model->attributes=$_POST['Alumno'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+							</code></pre>
+						</section>
+						<section>
+							<h2>widget de calendario</h2>
+							<p>vamos agregar un calendario a uno de los campos de nuestro formulario create</p>
+							<pre><code data-trim>$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+   'model'=>$model,
+   'attribute'=>'cambia_por_un_atributo',
+   'value'=>$model->cambia_por_un_atributo,
+   'language' => 'es',
+   'htmlOptions' => array('readonly'=>"readonly"),
+   'options'=>array(
+    'autoSize'=>true,
+    'defaultDate'=>$model->cambia_por_un_atributo,
+    'dateFormat'=>'yy-mm-dd',
+    'buttonImage'=>Yii::app()->baseUrl.'/images/calendario.png',
+    'buttonImageOnly'=>true,
+    'buttonText'=>'Fecha',
+    'selectOtherMonths'=>true,
+    'showAnim'=>'slide',
+    'showButtonPanel'=>true,
+    'showOn'=>'button', 
+    'showOtherMonths'=>true, 
+    'changeMonth' => 'true', 
+    'changeYear' => 'true', 
+    'minDate'=>'date("Y-m-d")', 
+    'maxDate'=> "+20Y",
+    ),
+  )); </code></pre>	
+  <small>decargate esta imagen:  <a href="http://icones.pro/es/link-calendario-imagen-png.html">click aca</a></small>
+  <small><a href="http://yiiframeworkespanol.blogspot.com/2014/05/cjuidatepicker-widget-calendario-para.html">ver refrencia</a></small>
+						</section>
 
 			</div>
 
