@@ -791,7 +791,43 @@ array(
   <small>decargate esta imagen:  <a href="http://icones.pro/es/link-calendario-imagen-png.html">click aca</a></small>
   <small><a href="http://yiiframeworkespanol.blogspot.com/2014/05/cjuidatepicker-widget-calendario-para.html">ver refrencia</a></small>
 						</section>
+<section> 
+						<section>
+							<h2>accediendo a los datos </h2>
+							<p>Vamos a realizar consultas a la tabla alumno a partir de controlador siteController
+								que se encuentra ubicado en App/protected/controllers/siteController.php</p>
+							
+							<pre><code data-trim>public function actionLista() {
+   $alumnos=Alumno::model()->findAll();
+   $this->render('register',array(
+       'alumnos'=>$alumnos,
+    ));
+ }
+ </code></pre>
+ <small>para ver mas busquedas has <a href="http://stackoverflow.com/questions/9736370/findall-in-yii">http://stackoverflow.com/questions/9736370/findall-in-yii</a></small>
+						</section>
+						<section>
+							<h2>cambiado la vista </h2>
+							<p>para poder los datos editamos el archivo App/protected/views/site/lista.php</p>
+							<pre><code data-trim>
+								<table border="1">
+ <tr><th>Nombre</th><th>Título</th><th>Acción</th></tr>
+ <?php 
 
+
+ foreach ($alumnos as $alumno) { ?>
+   <tr><td><?php echo $alumno->nombre ?></td>
+   <td><?php echo $alumno->apellidos ?></td>
+   <td><a href="?r=alumno/view&id=<?php
+     echo $alumno->id ?>"/>
+     Detalle</a></td>
+   </tr>
+ <?php } ?>
+</table>
+
+							</code></pre>
+						</section>
+</section>
 			</div>
 
 		</div>
